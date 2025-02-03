@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { movieApi } from "../../store/Actions/MovieAction";
+import { movieApi } from "../../store/Actions/movieAction";
 import { removeMovie } from "../../store/Redusers/MovieSlice";
 import Loading from "./Loading";
 import { FaPlay, FaStar } from "react-icons/fa";
@@ -27,7 +27,7 @@ function MovieDetail() {
             dispatch(removeMovie());
         };
     }, [id]);
-    
+
 
     return info ? (
         <div
