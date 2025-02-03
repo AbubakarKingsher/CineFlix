@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 
 
 function Home() {
+
     const [randomMovie, setRandomMovie] = useState(null)
     const [data, setData] = useState([])
     const [more, setMore] = useState(false)
@@ -45,9 +46,9 @@ function Home() {
                     >
                         <Navbar />
                         <div className='pl-10 mt-24'>
-                            <Link to={`/${randomMovie.media_type}/details/${randomMovie.id}`} className='inline-block text-4xl font-bold mb-3'>
+                            <h1 className='inline-block text-4xl font-bold mb-3'>
                                 {randomMovie.title || randomMovie.name}
-                            </Link>
+                            </h1>
                             <p className=' text-sm w-[70%]'>{more ? randomMovie.overview : randomMovie.overview.slice(0, 200)} {randomMovie.overview.length > 200 && <span onClick={() => setMore(!more)} className='text-blue-500 cursor-pointer'>{more ? "less" : "more..."}</span>}</p>
                             <div className='mt-3 flex gap-5'>
                                 <div className='flex items-center gap-2 text-sm'>
@@ -59,7 +60,7 @@ function Home() {
                                     <h2 className='uppercase'>{randomMovie.media_type || "No Information"}</h2>
                                 </div>
                             </div>
-                            <button className='mt-5 h-11 cursor-pointer px-5 bg-[#002C44] rounded-full border-white border-2 '><FaPlay className='inline-block mr-2' color='white' /> Watch trailer</button>
+                            <Link to={`/${randomMovie.media_type}/details/${randomMovie.id}`} className='mt-5 h-11 inline-block cursor-pointer py-2 px-5 bg-[#002C44] rounded-full border-white border-2 '><FaPlay className='inline-block mr-2' color='white' /> Watch trailer</Link>
                         </div>
                     </div> : null}
                 <Search />
